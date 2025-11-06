@@ -46,6 +46,10 @@ exports.start = function(PORT, STATIC_DIR, DATA_FILE, TEST_DIR) {
     res.render('index', {});
   });
 
+  app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+  });
+
   // serve static files for demo client
   app.use(express.static(STATIC_DIR));
 
